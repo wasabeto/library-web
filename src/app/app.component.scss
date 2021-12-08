@@ -1,0 +1,13 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+section {
+  &.main-content {
+    padding: 30px;
+  }
+}
