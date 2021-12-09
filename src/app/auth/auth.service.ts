@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AuthData } from './auth.model';
@@ -29,8 +29,11 @@ export class AuthService {
         return response['user'];
       }),
       catchError((error: any) => {
-        console.error(error);
-        return error;
+        const { status, message, statusText } = error;
+        if (status) {
+          return of(message);
+        }
+        return of(statusText);
       })
     );
   }

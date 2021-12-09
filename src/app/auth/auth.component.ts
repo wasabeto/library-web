@@ -26,13 +26,16 @@ export class AuthComponent implements OnInit, OnDestroy {
   submitForm(): void {
     if (this.loginForm.valid) {
       this.subscriptions.push(
-        this._authService
-          .login(this.loginForm.value.email, this.loginForm.value.password)
-          .subscribe((response: any) => {
+        this._authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
+          (response: any) => {
             if (response['id']) {
               this.router.navigate(['/books']);
+            } else {
+              // Catch errors
+              console.error(response);
             }
-          })
+          }
+        )
       );
     } else {
       // handle form errors

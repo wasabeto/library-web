@@ -1,5 +1,3 @@
-
-
 .container {
   position: relative;
 }
@@ -13,6 +11,12 @@
 
 table {
   width: 100%;
+
+  th.actions,
+  td.actions {
+    max-width: 10px;
+    text-align: right;
+  }
 }
 
 .loading-shade {
@@ -31,14 +35,4 @@ table {
 .rate-limit-reached {
   max-width: 360px;
   text-align: center;
-}
-
-/* Column Widths */
-.mat-column-number,
-.mat-column-state {
-  max-width: 64px;
-}
-
-.mat-column-created {
-  max-width: 124px;
 }
