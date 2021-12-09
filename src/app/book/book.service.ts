@@ -8,7 +8,7 @@ import { BookResponse } from './book.model';
   providedIn: 'root',
 })
 export class BookService {
-  endpoint: string = '/books';
+  readonly endpoint: string = '/books';
 
   constructor(private http: HttpClient) {}
 
@@ -17,6 +17,6 @@ export class BookService {
   }
 
   private _buildEndpoint(params: any): string {
-    return environment.baseURL + `${this.endpoint}?sort=${params['sort']}`;
+    return environment.baseURL + `${this.endpoint}?page=${params['page']}&limit=${params['limit']}&sort=${params['sort']}`;
   }
 }
