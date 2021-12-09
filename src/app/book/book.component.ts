@@ -15,7 +15,6 @@ export class BookComponent implements OnInit, OnDestroy, AfterViewInit {
   title: string = 'Books';
   books: Book[] = [];
   displayedColumns: string[] = ['title', 'genre', 'author', 'published'];
-  subscriptions: Subscription[] = new Array<Subscription>();
   resultsLength = 0;
   loading = true;
   isRateLimitReached = false;
@@ -63,6 +62,5 @@ export class BookComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy(): void {
     this.ngUnsubscribeAll.next();
     this.ngUnsubscribeAll.complete();
-    this.subscriptions.forEach((s) => s.unsubscribe());
   }
 }

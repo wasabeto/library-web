@@ -12,8 +12,8 @@ export class BookService {
 
   constructor(private http: HttpClient) {}
 
-  getBooks(params: any): Observable<BookResponse[]> {
-    return this.http.get<BookResponse[]>(this._buildEndpoint(params));
+  getBooks(params: any): Observable<BookResponse> {
+    return this.http.get<BookResponse>(this._buildEndpoint(params));
   }
 
   private _buildEndpoint(params: any): string {

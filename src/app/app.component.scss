@@ -4,6 +4,24 @@
 
 header {
   margin-bottom: 20px;
+
+  div.profile {
+    .container {
+      display: flex;
+      align-items: center;
+    }
+
+    .picture {
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      border-radius: 50px;
+    }
+
+    span.hello-user {
+      font-size: 85%;
+    }
+  }
 }
 
 section {

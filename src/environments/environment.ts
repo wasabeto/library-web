@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseURL: 'http://0.0.0.0:9000'
+  baseURL: 'http://0.0.0.0:9000',
+  masterKey: 'F44zbYj0nYp5fQgXHCvzPeVIxRt6R4Pw'
 };
 
 /*

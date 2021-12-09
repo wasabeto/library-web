@@ -4,9 +4,22 @@
       <span class="title">{{ title }}</span>
       <span class="spacer"></span>
 
-      <button mat-icon-button class="favorite-icon" aria-label="Example icon-button with heart icon">
+      <button mat-icon-button aria-label="Log in" routerLink="/auth" *ngIf="!(user$ | async)?.user">
         <mat-icon>login</mat-icon>
       </button>
+
+      <div *ngIf="(user$ | async) as authData" class="profile">
+        <div *ngIf="authData.user" class="container">
+          <div>
+            <img [src]="authData.user!.picture" [alt]="authData.user!.name" class="picture">
+          </div>
+          <span class="hello-user">Hi, {{ authData.user!.name }}</span>
+          <button mat-icon-button aria-label="Log in" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+          </button>
+        </div>
+      </div>
+
     </mat-toolbar>
   </header>
 
@@ -14,6 +27,3 @@
     <router-outlet></router-outlet>
   </section>
 </main>
-
-
-
